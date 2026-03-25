@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LuxeBite • Premium Food & Drink</title>
+    <meta
+      name="description"
+      content="Premium dark glassmorphism food and drink ordering dashboard with responsive mobile-first experience."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-bg" aria-hidden="true">
+      <div class="radial radial-blue"></div>
+      <div class="radial radial-amber"></div>
+      <svg class="noise" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <filter id="n">
+          <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch" />
+        </filter>
+        <rect width="100" height="100" filter="url(#n)" opacity="0.1"></rect>
+      </svg>
+    </div>
+
+    <div class="app-shell">
+      <aside class="sidebar glass desktop-only" aria-label="Sidebar">
+        <div class="brand-row">
+          <div class="avatar-gradient"></div>
+          <div>
+            <p class="sub-label">Premium Store</p>
+            <h1 class="brand">LuxeBite</h1>
+          </div>
+        </div>
+        <nav class="nav-list" aria-label="Primary">
+          <button class="nav-item active" type="button">Dashboard</button>
+          <button class="nav-item" type="button">Orders</button>
+          <button class="nav-item" type="button">Delivery</button>
+          <button class="nav-item" type="button">Payments</button>
+          <button class="nav-item" type="button">Inventory</button>
+        </nav>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar glass">
+          <div>
+            <p class="sub-label">Food & Drink Commerce</p>
+            <h2 class="page-title">Mobile-First Order Dashboard</h2>
+          </div>
+          <button class="btn btn-outline" type="button">Open Orders</button>
+        </header>
+
+        <section class="metrics-grid" aria-label="Key Metrics">
+          <article class="glass card metric">
+            <p class="sub-label">Today Sales</p>
+            <h3>$<span id="todaySales">0.00</span></h3>
+            <span class="badge success">+14.8%</span>
+          </article>
+          <article class="glass card metric">
+            <p class="sub-label">Orders</p>
+            <h3 id="totalOrders">0</h3>
+            <span class="badge info">Live</span>
+          </article>
+          <article class="glass card metric">
+            <p class="sub-label">Delivery Zone</p>
+            <h3>Phnom Penh</h3>
+            <span class="badge warning">Fast Route</span>
+          </article>
+        </section>
+
+        <section class="content-grid">
+          <article class="glass card">
+            <div class="section-head">
+              <div>
+                <p class="sub-label">Menu Catalog</p>
+                <h3>Drinks & Food</h3>
+              </div>
+              <span class="badge neutral">Responsive Cards</span>
+            </div>
+            <div class="menu-grid" id="menuGrid"></div>
+          </article>
+
+          <article class="glass card cart-panel" aria-live="polite">
+            <div class="section-head">
+              <div>
+                <p class="sub-label">Checkout</p>
+                <h3>Your Cart</h3>
+              </div>
+              <span class="badge info" id="cartCount">0 Items</span>
+            </div>
+            <ul id="cartItems" class="cart-items"></ul>
+            <div class="totals">
+              <div><span>Subtotal</span><strong id="subtotal">$0.00</strong></div>
+              <div><span>Delivery</span><strong id="deliveryFee">$2.50</strong></div>
+              <div class="grand-total"><span>Total</span><strong id="total">$2.50</strong></div>
+            </div>
+            <form id="checkoutForm" class="checkout-form">
+              <label>
+                Customer Name
+                <input required type="text" name="name" placeholder="Your full name" />
+              </label>
+              <label>
+                Phone Number
+                <input required type="tel" name="phone" placeholder="+855 xx xxx xxx" />
+              </label>
+              <label>
+                Delivery Address
+                <textarea required name="address" rows="3" placeholder="Street, district, city"></textarea>
+              </label>
+              <label>
+                Payment Method
+                <select name="payment" required>
+                  <option value="aba">ABA Bank Transfer</option>
+                </select>
+              </label>
+              <div class="bank-box">
+                <p class="sub-label">Bank Details</p>
+                <p>ABA: <strong>500393771</strong></p>
+                <p class="faint">Please include your phone number in transfer note.</p>
+              </div>
+              <button class="btn btn-primary" type="submit">Place Order</button>
+            </form>
+            <p id="orderMessage" class="order-message" role="status"></p>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <nav class="mobile-nav glass mobile-only" aria-label="Mobile Navigation">
+      <button class="nav-mini active" type="button">Home</button>
+      <button class="nav-mini" type="button">Menu</button>
+      <button class="nav-mini" type="button">Cart</button>
+      <button class="nav-mini" type="button">Account</button>
+    </nav>
+
+    <script src="app.js"></script>
+  </body>
+</html>
