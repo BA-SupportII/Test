@@ -17,13 +17,15 @@ Premium dark-mode glassmorphism food & drink ordering dashboard, mobile-first an
 
 Open `index.html` in your browser.
 
-## Automatic deployment to GitHub Pages
+## Fully automatic GitHub Pages deployment
 
-This repo includes `.github/workflows/deploy.yml` for automatic deployment.
+This repo includes `.github/workflows/deploy.yml` and deploys automatically on **every push to any branch**.
 
-1. Push to `main` (or `master`).
-2. In GitHub repo settings, ensure **Pages** source is **GitHub Actions**.
-3. The workflow deploys your site automatically on every push.
+### One-time setup (only once per repo)
+
+- In GitHub repo **Settings → Pages**, choose **Build and deployment: GitHub Actions**.
+
+After that, every push auto-deploys without extra manual steps.
 
 Your hosted URL will be:
 `https://<your-username>.github.io/<repo-name>/`
